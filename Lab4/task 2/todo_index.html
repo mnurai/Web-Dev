@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link href="todo_style.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>ToDo List</nav>
+  </header>
+  <main>
+    <h1>ToDo List</h1>
+    <form id="todo_form">
+      <label for="todo_input" class="sr-only"> New Task</label>
+      <input type="text" id="todo_input" placeholder="New Task" required>
+      <button type="submit" id="btn_add">Add</button>
+    </form>
+    <ul id="todo_list">
+    </ul>
+  </main>
+  <script src="todo_script.js"></script>
+</body>
+</html>
