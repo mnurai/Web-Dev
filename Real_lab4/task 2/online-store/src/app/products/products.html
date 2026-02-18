@@ -1,0 +1,33 @@
+<div class="product-container">
+  @for (product of products; track product.name) {
+    <div class="product-card">
+      <img [src]="product.image" [alt]="product.name" class="product-image">
+
+      <h2>{{ product.name }}</h2>
+      <p class="description">{{ product.description }}</p>
+
+      <div class="rating-badge">
+        <span>⭐ {{ product.rating }}</span>
+      </div>
+
+      <p class="price">{{ product.price }} KZT</p>
+
+      <div class="actions">
+        <a [href]="product.link" target="_blank" class="buy-link">View on Kaspi</a>
+        <button (click)="shareProduct(product, 'whatsapp')" class="share-btn">WA</button>
+        <button (click)="shareProduct(product, 'telegram')" class="share-btn">TG</button>
+      </div>
+
+      <div class="thumbnail-row" >
+        @for (imgUrl of product.images; track imgUrl){
+          <img
+            [src]="imgUrl" (click)="changeImage(product,imgUrl)"
+            class="thumb-img"
+            [class.active]="product.image === imgUrl">
+        }
+      </div>
+    </div>
+  } @empty {
+    <p>No products found.</p>
+  }
+</div>
