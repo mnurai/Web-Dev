@@ -1,0 +1,22 @@
+<header>
+  <h1>Kaspi Store</h1>
+  <nav class="category-nav">
+    @for(cat of categories; track cat.id){
+    <button [class.active]="selectedCategoryId === cat.id" (click)="selectCategory(cat.id)">
+      {{cat.name}}
+    </button>
+    }
+  </nav>
+</header>
+
+<main>
+  @if(!isCategorySelected) {
+  <div class="welcome-msg">
+    <h2>Welcome!</h2>
+    <p>Select a category</p>
+  </div>
+  }
+  @if(isCategorySelected) {
+  <app-product-list [products]="filteredProducts"></app-product-list>
+  }
+</main>

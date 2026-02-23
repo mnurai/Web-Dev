@@ -1,0 +1,11 @@
+@if (products.length > 0){
+  <div class="product-grid">
+       @for(p of products; track p.id){
+       <app-product-item
+         [product]="p"
+         (remove)="handleRemove($event)"></app-product-item>
+       }
+</div>
+} @else{
+  <p class="empty-msg"> No products here</p>
+}
